@@ -7,7 +7,7 @@ import PackageDescription
 let package = Package(
     name: "IRKit",
     platforms: [
-        .iOS(.v17)
+        .iOS(.v16)
     ],
     products: [
         .library(
@@ -18,8 +18,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "IRKit",
-            url: "https://github.com/irdb-holdings/irkit-releases/releases/download/26.13.0/IRKit.xcframework.zip",
-            checksum: "b43e34e62084277da58faf8a4e6d0af28a9648e65a45bf8be476dbd3244cb39f"
+            url: "https://github.com/irdb-holdings/irkit-releases/releases/download/26.13.1/IRKit.xcframework.zip",
+            checksum: "6a893f67854c343abcb7a3543bebe69b88eabd905f3ab8bc934c4f76a5b35ed2"
         )
     ]
 )
