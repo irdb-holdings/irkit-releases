@@ -1,0 +1,96 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.irdb",
+    "module": "irkit-logging",
+    "version": "2026.3.072120260825",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.0.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "irkit-logging-2026.3.072120260825.aar",
+          "url": "irkit-logging-2026.3.072120260825.aar",
+          "size": 7519,
+          "sha512": "3fb8b4830a86f60e9e1e8a0bcaa30ab582bf4d9af41f4e665b778f7dcb8a332ddacc602c97064e077691011ffb12726941d22949a0663db3ef7047e59764c0ff",
+          "sha256": "e7e764ce8d2bc9d3ffa67218e322b731ce4bc5f639377f72cf52f1c468255aa8",
+          "sha1": "ebc3c5f9d3598e9bfc791f16eedc907d8468d06b",
+          "md5": "f2e5c598d39cfa2f033a2c0600732e10"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.0.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "irkit-logging-2026.3.072120260825.aar",
+          "url": "irkit-logging-2026.3.072120260825.aar",
+          "size": 7519,
+          "sha512": "3fb8b4830a86f60e9e1e8a0bcaa30ab582bf4d9af41f4e665b778f7dcb8a332ddacc602c97064e077691011ffb12726941d22949a0663db3ef7047e59764c0ff",
+          "sha256": "e7e764ce8d2bc9d3ffa67218e322b731ce4bc5f639377f72cf52f1c468255aa8",
+          "sha1": "ebc3c5f9d3598e9bfc791f16eedc907d8468d06b",
+          "md5": "f2e5c598d39cfa2f033a2c0600732e10"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "irkit-logging-2026.3.072120260825-sources.jar",
+          "url": "irkit-logging-2026.3.072120260825-sources.jar",
+          "size": 4257,
+          "sha512": "e355d0780c42c4b883e6cbbd64a67c13f260b9053804a64138f016cd41257b9a7b7d350966ec090bce58bd8fa25999dcf4168c39923fe3f2e5e599bce8a7497c",
+          "sha256": "b4bb38864c7a129ddd1d57b18d2abb9077d2d701ab6e5053cab86c486f785934",
+          "sha1": "988f790637cf0925316bd3d2a61d27198f31f2c2",
+          "md5": "e9ec370dc0d95aa384a1540262e2962f"
+        }
+      ]
+    }
+  ]
+}
