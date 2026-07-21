@@ -1,28 +1,27 @@
-# IRKit SDK releases
+# IRKit
 
-Public distribution point for the **IRKit SDK** on both Apple and Android platforms.
-One repository, two delivery mechanisms, kept clearly separated.
+Recognize IRCODE-enabled images in your app with a live camera experience or a still-image
+recognition flow. IRKit is available for iOS and Android, and this repository is where you
+add it to your project.
 
-| Platform | How it ships | Where to look |
-|----------|--------------|---------------|
-| iOS / Apple | Swift Package Manager binary target | `main` branch `Package.swift` + [Releases](https://github.com/irdb-holdings/irkit-releases/releases) tagged `NN.NN.N` |
-| Android | Maven repository (GitHub Pages) | `gh-pages` branch, served at https://irdb-holdings.github.io/irkit-releases/ + Releases tagged `android-*` |
+IRKit requires a subscription key, which is provided by IRCODE.
 
-Documentation for both platforms lives at **https://irkit-docs.web.app**.
+## iOS
 
-## iOS (Swift Package Manager)
-
-Add the package, pinned to a released version:
+Add IRKit to your app with the Swift Package Manager. In Xcode, choose
+**File → Add Package Dependencies…** and enter this repository URL, or add it directly to
+your `Package.swift`:
 
 ```swift
 .package(url: "https://github.com/irdb-holdings/irkit-releases.git", exact: "26.16.0")
 ```
 
-The `XCFramework` and `dSYMs` for each version are attached to the matching GitHub Release.
+Each version ships as a prebuilt XCFramework, with matching debug symbols, attached to the
+corresponding [release](https://github.com/irdb-holdings/irkit-releases/releases).
 
-## Android (Gradle / Maven)
+## Android
 
-Add the Pages-hosted Maven repository in `settings.gradle.kts`:
+Add the IRKit repository in your `settings.gradle.kts`:
 
 ```kotlin
 dependencyResolutionManagement {
@@ -34,7 +33,7 @@ dependencyResolutionManagement {
 }
 ```
 
-Then declare the dependencies:
+Then add the libraries to your app's `build.gradle.kts`:
 
 ```kotlin
 dependencies {
@@ -44,16 +43,20 @@ dependencies {
 }
 ```
 
-A runnable integration sample is available at
-https://github.com/irdb-holdings/irkit-android-demo.
+## Documentation
 
-## Release conventions
+Full documentation for both platforms is at **https://irkit-docs.web.app**:
 
-Each platform releases independently with its own tags and release notes:
+- [iOS SDK reference](https://irkit-docs.web.app/documentation/irkit)
+- [Android SDK guide](https://irkit-docs.web.app/android/)
+- [Android offline recognition](https://irkit-docs.web.app/android/offline/)
 
-- **iOS** tags use the marketing version directly: `26.16.0`.
-- **Android** tags are prefixed: `android-2026.3.072120260825`.
+## Sample app
 
-Release titles are prefixed (`IRKit iOS …` / `IRKit Android …`) so the
-[Releases page](https://github.com/irdb-holdings/irkit-releases/releases) stays scannable,
-and each release carries platform-specific notes.
+A runnable Android sample that integrates IRKit end to end is available at
+[irkit-android-demo](https://github.com/irdb-holdings/irkit-android-demo).
+
+## Releases
+
+Browse all iOS and Android versions, with release notes, on the
+[releases page](https://github.com/irdb-holdings/irkit-releases/releases).
