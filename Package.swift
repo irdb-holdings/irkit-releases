@@ -18,8 +18,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "IRKit",
-            url: "https://github.com/irdb-holdings/irkit-releases/releases/download/26.16.0/IRKit.xcframework.zip",
-            checksum: "03deab805c88d61169a11ffb2a3e541490abd9339fd80b5b2b39d2ce995af665"
+            url: "https://github.com/irdb-holdings/irkit-releases/releases/download/26.20.0/IRKit.xcframework.zip",
+            checksum: "9444a1ed46a59dbff76dde1576df68519ff1de76c1277478a0ffb815ca3e1fc9"
         )
     ]
 )
