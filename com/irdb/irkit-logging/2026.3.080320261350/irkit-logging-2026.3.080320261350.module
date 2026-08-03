@@ -1,0 +1,76 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.irdb",
+    "module": "irkit-logging",
+    "version": "2026.3.080320261350",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.0.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "irkit-logging-2026.3.080320261350.aar",
+          "url": "irkit-logging-2026.3.080320261350.aar",
+          "size": 7575,
+          "sha512": "f8a9f5b8bf9c819e2e1c3d6704b669d581746fdcf5bfa6efec13a01c583f334e005f3dca9c07b183f68596e20383536abcc05dbee546acae5df71908c0788d10",
+          "sha256": "6006972a5e48fd294330d4f402ffac2a6da1662698491f52b564450a09c01fcf",
+          "sha1": "104d4aad202d5c5532d4318962d0f315a2cb3060",
+          "md5": "4384e341dfcf7e6c15139f66794d205a"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.0.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "irkit-logging-2026.3.080320261350.aar",
+          "url": "irkit-logging-2026.3.080320261350.aar",
+          "size": 7575,
+          "sha512": "f8a9f5b8bf9c819e2e1c3d6704b669d581746fdcf5bfa6efec13a01c583f334e005f3dca9c07b183f68596e20383536abcc05dbee546acae5df71908c0788d10",
+          "sha256": "6006972a5e48fd294330d4f402ffac2a6da1662698491f52b564450a09c01fcf",
+          "sha1": "104d4aad202d5c5532d4318962d0f315a2cb3060",
+          "md5": "4384e341dfcf7e6c15139f66794d205a"
+        }
+      ]
+    }
+  ]
+}

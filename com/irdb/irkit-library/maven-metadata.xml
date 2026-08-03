@@ -3,11 +3,13 @@
   <groupId>com.irdb</groupId>
   <artifactId>irkit-library</artifactId>
   <versioning>
-    <latest>2026.3.072120260825</latest>
-    <release>2026.3.072120260825</release>
+    <latest>2026.3.080320261350</latest>
+    <release>2026.3.080320261350</release>
     <versions>
       <version>2026.3.072120260825</version>
+      <version>2026.3.080320261245</version>
+      <version>2026.3.080320261350</version>
     </versions>
-    <lastUpdated>20260721082559</lastUpdated>
+    <lastUpdated>20260803135031</lastUpdated>
   </versioning>
 </metadata>

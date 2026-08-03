@@ -29,9 +29,9 @@ Then declare the dependencies in your module `build.gradle.kts`:
 
 ```kotlin
 dependencies {
-    implementation("com.irdb:irkit-library:2026.3.072120260825")
-    implementation("com.irdb:irkit-ui:2026.3.072120260825")
-    implementation("com.irdb:irkit-analytics:2026.3.072120260825")
+    implementation("com.irdb:irkit-library:2026.3.080320261350")
+    implementation("com.irdb:irkit-ui:2026.3.080320261350")
+    implementation("com.irdb:irkit-analytics:2026.3.080320261350")
 }
 ```
 
