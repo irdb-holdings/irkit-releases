@@ -4,9 +4,9 @@ description: "Start IRKit once, after permissions are granted and your subscript
 order: 4
 ---
 
-Call initialize once before opening the scanner, after permissions are granted and your subscription / API key is available.
+Call initialize once before opening the scanner, after permissions are granted and your subscription / API key is available. For the no-camera overlay, call [`Tap2Scan.initialize`](../tap2scan/initialize-and-layout.md) instead (before constructing `Tap2ScanLens`) — see [IRKitTap2ScanActivity](../integration/irkittap2scan-activity.md) for the host Activity.
 
-> **Caution:** **Call `IRKit.initialize` as close as possible to opening `IRKitLens`.** Do not initialize at application cold start “just in case.” Initialize when the user is about to enter the scanner (for example, immediately before starting your lens Activity), then open `IRKitLens`.
+> **Caution:** **Call `IRKit.initialize` as close as possible to opening [`IRKitLens`](../components/irkitlens-overview.md).** Do not initialize at application cold start “just in case.” Initialize when the user is about to enter the scanner (for example, immediately before starting your lens Activity), then open `IRKitLens`.
 
 ## Subscription / API Key
 

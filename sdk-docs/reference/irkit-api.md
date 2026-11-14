@@ -6,12 +6,12 @@ order: 11
 
 ## IRKit (Irkit-library)
 
-| API                                          | Description                                                                                                                |
-| -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `IRKit.initialize(context, subscriptionKey)` | Set up the SDK (Java: `IRKit.Companion.initialize`). Call as close as possible to opening `IRKitLens` — not at cold start. |
-| `IRKit.isInitialized()`                      | Whether initialize already succeeded                                                                                       |
-| `IRKit.getInstance()`                        | Access configuration and related helpers after init                                                                        |
-| `getConfiguration()`                         | Pass into `IREngine.setConfiguration`                                                                                      |
+| API                                          | Description                                                                                                                                                       |
+| -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `IRKit.initialize(context, subscriptionKey)` | Set up the SDK (Java: `IRKit.Companion.initialize`). Call as close as possible to opening [`IRKitLens`](../components/irkitlens-overview.md) — not at cold start. |
+| `IRKit.isInitialized()`                      | Whether initialize already succeeded                                                                                                                              |
+| `IRKit.getInstance()`                        | Access configuration and related helpers after init                                                                                                               |
+| `getConfiguration()`                         | Pass into `IREngine.setConfiguration`                                                                                                                             |
 
 `IRKitMissingPermissionsException` exposes `missingPermissions: List<String>` when initialize is blocked by permissions.
 
@@ -23,7 +23,7 @@ val irEngine = IREngine(context).apply {
 }
 ```
 
-Construct and configure the engine; pass it to `IRKitLens`. You do not need deeper engine APIs for a standard integration.
+Construct and configure the engine; pass it to [`IRKitLens`](../components/irkitlens-overview.md). You do not need deeper engine APIs for a standard integration.
 
 ## IRKitUI (Irkit-ui)
 

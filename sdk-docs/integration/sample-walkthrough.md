@@ -31,6 +31,15 @@ The sample app, end to end.
 - Match → convert with `imageModel.toShared()` → [ImageModelShared](../models/imagemodel-shared.md)
 - If the card has products and the user taps one → `onProductClicked` with [ProductInCampaignDto](../models/product-model.md) (optional; not all cards have products)
 
+## 5. The Tap2Scan Sample App
+
+For the no-camera overlay, the Tap2Scan sample app is the reference. See [IRKitTap2ScanActivity](irkittap2scan-activity.md) for **minimal setup and use**.
+
+- Add the same four IRKit AARs from published Maven
+- Call `Tap2Scan.initialize` in the player Activity `onCreate`
+- Host your player + `Tap2ScanLens` MATCH_PARENT sibling
+- Call `setHostOwnedCapture` with the same URI and playhead ms
+
 ## Suggested Client Checklist
 
 1. Copy Gradle repository + IRKit dependencies

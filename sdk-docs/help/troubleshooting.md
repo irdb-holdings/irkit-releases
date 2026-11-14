@@ -26,6 +26,14 @@ Enable Compose in the module, apply the Compose compiler plugin, and align with 
 
 Always call `IRKitUI.deInitialize()` in the host Activity `onStop`. Re-initialize before opening the lens again.
 
+## Tap2Scan Initialize Fails
+
+Call `Tap2Scan.initialize(context, subscriptionKey)` with a non-blank key before constructing `Tap2ScanLens`. If `IRKit` is already initialized, the key must match.
+
+## Tap2Scan Scan
+
+Leave the video playing during scan. Do not pause in `onBeforeCapture`. See [Host-owned capture](../tap2scan/capture-modes.md#host-owned-capture).
+
 ## Need Library Version for Support
 
 Use `IRKitUI.getBuildInfo()` or the sample’s `BuildConfig.IRKIT_VERSION`.
