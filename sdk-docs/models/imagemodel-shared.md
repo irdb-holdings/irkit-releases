@@ -4,7 +4,7 @@ description: "The client-facing description of a matched image"
 order: 9
 ---
 
-`com.irdb.irkit.shared.ImageModelShared` is the stable client-facing description of a matched image. Convert from lens callbacks with `imageModel.toShared()`.
+`com.irdb.irkit.shared.ImageModelShared` is the stable client-facing description of a matched image. Convert from lens callbacks with `imageModel.toShared()`. [`Tap2ScanLens.setOnImageRecognized`](../tap2scan/tap2scanlens-api.md) delivers this type directly.
 
 ```kotlin
 onImageRecognized = { imageModel ->
@@ -15,6 +15,14 @@ onImageRecognized = { imageModel ->
     }
 }
 ```
+
+You can also observe the last match as a flow:
+
+```kotlin
+IRKit.getInstance().imageRecognitionObserver.lastSeenImageShared  // StateFlow<ImageModelShared?>
+```
+
+`null` means no recognition yet; a non-null value is always a real match.
 
 ## Fields
 

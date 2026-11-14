@@ -6,7 +6,7 @@ order: 2
 
 IRKit publishes Android libraries (AARs) to a public Maven host. No credentials are required for the client releases repository.
 
-**Documented library version:** `2026.3.072120260825`
+**Documented library version:** `2026.3.082020261126`
 
 ## Repository
 
@@ -24,17 +24,17 @@ Add this in `settings.gradle.kts` under `dependencyResolutionManagement.reposito
 
 All four artifacts are published under the same version. Use one version string for the whole set.
 
-| Coordinate                 | What it provides (client view)                                                                                 |
-| -------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `com.irdb:irkit-logging`   | Shared logging used by the other IRKit libraries. Delivered with the release set; often resolved transitively. |
-| `com.irdb:irkit-library`   | Core SDK: `IRKit`, `IREngine`, shared result models (`ImageModelShared`, products).                            |
-| `com.irdb:irkit-ui`        | Scanner UI: `IRKitLens` Compose composable and `IRKitUI` helpers (`deInitialize`, build info, credits).        |
-| `com.irdb:irkit-analytics` | Required companion AAR — use the same version as the other IRKit AARs                                          |
+| Coordinate                 | What it provides (client view)                                                                                                                                                                                                         |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `com.irdb:irkit-logging`   | Shared logging used by the other IRKit libraries. Delivered with the release set; often resolved transitively.                                                                                                                         |
+| `com.irdb:irkit-library`   | Core SDK: [`IRKit`](../reference/irkit-api.md), [`IREngine`](../reference/irkit-api.md), shared result models ([`ImageModelShared`](../models/imagemodel-shared.md), products).                                                        |
+| `com.irdb:irkit-ui`        | Scanner UI: [`IRKitLens`](../components/irkitlens-overview.md) Compose composable, [`IRKitUI`](../reference/irkit-api.md) helpers (`deInitialize`, build info, credits), and Tap2Scan (`Tap2Scan` / `Tap2ScanLens`) — not a fifth AAR. |
+| `com.irdb:irkit-analytics` | Required companion AAR — use the same version as the other IRKit AARs                                                                                                                                                                  |
 
 ## Gradle Dependencies
 
 ```kotlin
-val irkitVersion = "2026.3.072120260825" // pin the version IRKit provides
+val irkitVersion = "2026.3.082020261126" // pin the version IRKit provides
 
 implementation("com.irdb:irkit-library:$irkitVersion")
 implementation("com.irdb:irkit-ui:$irkitVersion")
