@@ -8,12 +8,12 @@ Beyond the IRKit AARs, the sample app declares AndroidX and Compose libraries so
 
 ## IRKit Artifacts
 
-| Dependency                 | Version             | Why                                   |
-| -------------------------- | ------------------- | ------------------------------------- |
-| `com.irdb:irkit-library`   | same `irkitVersion` | Initialize SDK and recognition engine |
-| `com.irdb:irkit-ui`        | same                | Host `IRKitLens`                      |
-| `com.irdb:irkit-analytics` | same                | Required companion AAR (same version) |
-| `com.irdb:irkit-logging`   | same (shipped)      | Logging support for the IRKit stack   |
+| Dependency                 | Version             | Why                                                                                                |
+| -------------------------- | ------------------- | -------------------------------------------------------------------------------------------------- |
+| `com.irdb:irkit-library`   | same `irkitVersion` | Initialize SDK and recognition engine                                                              |
+| `com.irdb:irkit-ui`        | same                | Host [`IRKitLens`](../components/irkitlens-overview.md) and/or [Tap2Scan](../tap2scan/overview.md) |
+| `com.irdb:irkit-analytics` | same                | Required companion AAR (same version)                                                              |
+| `com.irdb:irkit-logging`   | same (shipped)      | Logging support for the IRKit stack                                                                |
 
 ## Core Android (Host UI)
 
@@ -26,7 +26,7 @@ Beyond the IRKit AARs, the sample app declares AndroidX and Compose libraries so
 
 ## Compose (Required to Host IRKitLens)
 
-`IRKitLens` is a `@Composable`. Your lens screen must be a Kotlin `ComponentActivity` that calls `setContent { ... }`. Other screens may stay Java/XML.
+[`IRKitLens`](../components/irkitlens-overview.md) is a `@Composable`. Your lens screen must be a Kotlin `ComponentActivity` that calls `setContent { ... }`. Other screens may stay Java/XML.
 
 | Dependency                                     | Version in sample | Why needed                                            |
 | ---------------------------------------------- | ----------------- | ----------------------------------------------------- |
@@ -36,6 +36,12 @@ Beyond the IRKit AARs, the sample app declares AndroidX and Compose libraries so
 | `androidx.compose.material3:material3`         | via BOM           | Material3 theming for Compose host screens            |
 | `androidx.activity:activity-compose`           | 1.10.1            | `setContent` bridge from Activity → Compose           |
 | `androidx.lifecycle:lifecycle-runtime-compose` | 2.9.0             | Lifecycle-aware Compose runtime                       |
+
+## In-app Browser (Transitive)
+
+`com.irdb:irkit-ui` depends on `androidx.browser:browser:1.8.0` for Chrome Custom Tabs — an in-app browser with Close (iOS `SFSafariViewController` parity). The library uses it when opening http(s) result links and when microsite navigation ejects cross-host or `target=_blank` destinations.
+
+Clients normally get this **transitively** via the published UI AAR. You do **not** need to wire Custom Tabs yourself for default Tap2Scan / SmartView link opens. Non-http(s) schemes (`tel:`, `mailto:`, custom) use a system `ACTION_VIEW` instead.
 
 > **Note:** Prefer the sample’s Compose BOM and activity-compose versions when integrating. Mismatched Compose stacks are a common source of runtime crashes.
 

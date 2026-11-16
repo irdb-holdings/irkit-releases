@@ -17,8 +17,9 @@ Hardware, OS, and permission requirements match what the sample app uses success
 
 ## Hardware
 
-- Rear camera required — declare `android.hardware.camera` with `android:required="true"`
-- Portrait orientation recommended for the lens Activity
+- [`IRKitLens`](../components/irkitlens-overview.md): rear camera required — declare `android.hardware.camera` with `android:required="true"`
+- [Tap2Scan](../tap2scan/overview.md): no camera — the host owns video / media playback
+- Portrait orientation recommended for the IRKitLens Activity
 
 ## Manifest Permissions
 

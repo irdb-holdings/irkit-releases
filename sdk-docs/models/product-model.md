@@ -10,7 +10,7 @@ Some matched cards include linked products; many do not. When a match has no pro
 
 ## 1. On a Match — ProductLinkShared
 
-When products are present, `ImageModelShared.products` is a list of `com.irdb.irkit.shared.ProductLinkShared`. Otherwise the list is empty.
+When products are present, [`ImageModelShared`](imagemodel-shared.md)`.products` is a list of `com.irdb.irkit.shared.ProductLinkShared`. Otherwise the list is empty.
 
 | Field          | Type      | Description       |
 | -------------- | --------- | ----------------- |

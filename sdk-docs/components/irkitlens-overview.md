@@ -10,7 +10,7 @@ order: 7
 
 ## What You Provide
 
-- A configured `IREngine` (required)
+- A configured [`IREngine`](../reference/irkit-api.md) (required)
 - Optional callbacks for matches and products
 - Layout `Modifier` (typically `Modifier.fillMaxSize()`)
 

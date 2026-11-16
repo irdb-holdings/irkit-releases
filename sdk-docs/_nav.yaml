@@ -2,6 +2,8 @@
   label: Getting Started
 - folder: integration
   label: Integration
+- folder: tap2scan
+  label: Tap2Scan
 - folder: offline
   label: Offline Recognition
 - folder: components
