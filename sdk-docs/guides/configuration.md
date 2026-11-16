@@ -99,6 +99,6 @@ IRVision.shared.setHapticFeedbackEnabled(true)
 
 ## Recommended Startup Pattern
 
-Configure IRKit once during app startup, before presenting [`IRCameraView`](../reference/ircameraview.md) or calling [`identifyImage(_:)`](../reference/irvision.md#identifyimage_).
+Configure IRKit once during app startup, before presenting [`IRCameraView`](../reference/ircameraview.md) or calling [`identifyImage(_:recordsScan:)`](../reference/irvision.md#identifyimage_recordsscan).
 
 If your app switches between environments or subscription keys for testing, call [`configure(with:)`](../reference/irvision.md#configurewith) with a new [`IRVisionConfiguration`](../reference/irvisionconfiguration.md) before starting the next recognition flow. Mutable settings are kept separately for each subscription key, so switching keys restores the corresponding settings.

@@ -85,12 +85,28 @@ The service environment to use. Defaults to `.production`.
 let environment: IREnvironment
 ```
 
+### preferredMetadataLanguages
+
+The languages result metadata is asked for, most preferred first, as BCP 47 tags. `nil` (the default) uses the device’s preferred languages. An IRCODE without a requested language shows its primary one.
+
+```swift
+var preferredMetadataLanguages: [String]?
+```
+
 ### segmentationModelName
 
 Selects a specific bundled segmentation model for this lens session, overriding the automatic choice. Leave `nil` (the default) to let the lens configuration select the model.
 
 ```swift
 var segmentationModelName: String?
+```
+
+### showsArtCards
+
+Shows art-card IRCODEs (artist, title, year, medium) as lens results. When `false` (the default) art-card matches are treated as no result, as before.
+
+```swift
+var showsArtCards: Bool
 ```
 
 ### subscriptionKey

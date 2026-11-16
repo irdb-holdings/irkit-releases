@@ -3,6 +3,8 @@ title: "AnalyticsService"
 description: "Tracks analytics events and identifies the current user"
 ---
 
+Tracks analytics events and identifies the current user.
+
 ```swift
 final class AnalyticsService
 ```

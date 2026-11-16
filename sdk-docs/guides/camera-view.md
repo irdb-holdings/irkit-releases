@@ -98,7 +98,7 @@ Under `.fromLens`, the debug sheet’s **Snapshot Capture Button** override (see
 
 The shutter is positioned automatically for the device and orientation: centered along the bottom edge in portrait, and centered along the trailing (right) edge in landscape, on both iPhone and iPad.
 
-> **Note:** Snapshot capture is built into [`IRCameraView`](../reference/ircameraview.md). You only need [`identifyImage(_:)`](../reference/irvision.md#identifyimage_) (see [Recognizing still images](static-image-recognition.md)) when you are sourcing images from _outside_ the IRKit camera — a photo picker, your own capture UI, or a paused video frame.
+> **Note:** Snapshot capture is built into [`IRCameraView`](../reference/ircameraview.md). You only need [`identifyImage(_:recordsScan:)`](../reference/irvision.md#identifyimage_recordsscan) (see [Recognizing still images](static-image-recognition.md)) when you are sourcing images from _outside_ the IRKit camera — a photo picker, your own capture UI, or a paused video frame.
 
 ## Gaze Bounding Mode
 

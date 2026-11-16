@@ -38,7 +38,7 @@ var isOfflineRecognitionAvailable: Bool { get async }
 
 Returns `true` only when an offline engine is registered, enabled, passed preflight, and reports a non-empty local catalog. Use it to drive UI affordances such as a “ready for offline use” indicator.
 
-See [Offline recognition](../guides/offline-recognition.md).
+See [Offline Recognition](../guides/offline-recognition.md).
 
 ## Instance Methods
 
@@ -54,7 +54,7 @@ func clearOfflineCache() async
 
 Use this when the user signs out, switches accounts, or otherwise needs to discard cached recognition data. The next call to [`syncOfflineIRCodes(force:)`](irvision.md#syncofflineircodesforce) will rebuild the catalog from scratch. Also resets the observable sync state ([`lastOfflineSyncDate`](irvision.md#lastofflinesyncdate) / [`lastOfflineSyncStats`](irvision.md#lastofflinesyncstats)). No-ops on the engine when none is registered.
 
-See [Offline recognition](../guides/offline-recognition.md).
+See [Offline Recognition](../guides/offline-recognition.md).
 
 ### fetchIRCode(imageID:)
 
@@ -68,17 +68,18 @@ func fetchIRCode(imageID: String) async -> ImageModel?
 
 Used by Visual Intelligence deep links and other entry points that already know the `imageID` and need metadata (title, thumbnail, microsite links).
 
-### identifyImage(_:)
+### identifyImage(_:recordsScan:)
 
 Performs a single-shot recognition request using a `UIImage`.
 
 ```swift
-func identifyImage(_ image: UIImage) async -> ImageModel?
+func identifyImage(_ image: UIImage, recordsScan: Bool = true) async -> ImageModel?
 ```
 
 **Parameters**
 
 - `image`: The image to analyze.
+- `recordsScan`: Whether this counts as a user’s scan in IRCODE’s statistics. Leave it on for anything a person pointed a camera at; turn it off for automated checks. A recorded match’s [`micrositeURL`](imagemodel.md#micrositeurl) carries the scan’s attribution, so a conversion on that site joins back to this scan.
 
 #### Return Value
 
@@ -88,12 +89,12 @@ The recognized image metadata, or `nil` when no match is found.
 
 Returns a populated `ImageModel` when a matching IRCODE is found; otherwise returns `nil`.
 
-### identifyImage(schedule:framing:firstFrame:captureFrame:)
+### identifyImage(schedule:framing:firstFrame:recordsScan:captureFrame:)
 
 Performs recognition as a burst of independently captured frames.
 
 ```swift
-func identifyImage(schedule: IRBurstSchedule = .tapToScan, framing: IRQueryFraming = .fullFrame, firstFrame: UIImage? = nil, captureFrame: @escaping IRFrameProvider) async -> ImageModel?
+func identifyImage(schedule: IRBurstSchedule = .tapToScan, framing: IRQueryFraming = .fullFrame, firstFrame: UIImage? = nil, recordsScan: Bool = true, captureFrame: @escaping IRFrameProvider) async -> ImageModel?
 ```
 
 **Parameters**
@@ -101,6 +102,7 @@ func identifyImage(schedule: IRBurstSchedule = .tapToScan, framing: IRQueryFrami
 - `schedule`: When each frame is captured, and the deadline after which the scan is called a miss. Defaults to [`tapToScan`](irburstschedule.md#taptoscan).
 - `framing`: How the query image is built from each frame. Defaults to [`IRQueryFraming.fullFrame`](irqueryframing.md#irqueryframingfullframe), since a burst is worth running on content that is already composed — a player’s video — rather than on a camera scene.
 - `firstFrame`: A frame you have already captured, used for the first attempt instead of calling `captureFrame` again. Pass the frame you are showing the user, so the first query matches what is on screen.
+- `recordsScan`: Whether this counts as a user’s scan in IRCODE’s statistics. See [`identifyImage(_:recordsScan:)`](irvision.md#identifyimage_recordsscan).
 - `captureFrame`: Supplies a fresh frame for every other attempt. Called on the main actor; return `nil` to skip an attempt.
 
 #### Return Value
@@ -111,7 +113,7 @@ The recognized image metadata, or `nil` when no match is found.
 
 One call starts several attempts staggered over time, and the earliest one that finds something wins. `captureFrame` is called once per attempt, so each samples a different moment of a moving scene. Attempts stop at the first hit, so a quick match costs nothing extra.
 
-Use this rather than [`identifyImage(_:)`](irvision.md#identifyimage_) whenever the source keeps moving — a playing video, a live preview — and the single-shot form when there is only ever one frame to scan, such as a photo picked from the library.
+Use this rather than [`identifyImage(_:recordsScan:)`](irvision.md#identifyimage_recordsscan) whenever the source keeps moving — a playing video, a live preview — and the single-shot form when there is only ever one frame to scan, such as a photo picked from the library.
 
 ### identifyUser(_:)
 
@@ -131,9 +133,9 @@ func recognizeOffline(_ image: UIImage) async -> ImageModel?
 
 #### Discussion
 
-Use this for host-driven flows where you explicitly want an offline answer (for example a “search offline” affordance). For the standard experience that can use online recognition when available, use [`identifyImage(_:)`](irvision.md#identifyimage_) instead.
+Use this for host-driven flows where you explicitly want an offline answer (for example a “search offline” affordance). For the standard experience that can use online recognition when available, use [`identifyImage(_:recordsScan:)`](irvision.md#identifyimage_recordsscan) instead.
 
-Returns `nil` when offline recognition is not active (no engine registered, disabled, or preflight not passed) or when no match is found. See [Offline recognition](../guides/offline-recognition.md).
+Returns `nil` when offline recognition is not active (no engine registered, disabled, or preflight not passed) or when no match is found. See [Offline Recognition](../guides/offline-recognition.md).
 
 ### recognizeOffline(pixelBuffer:)
 
@@ -145,7 +147,7 @@ func recognizeOffline(pixelBuffer: CVPixelBuffer) async -> ImageModel?
 
 #### Discussion
 
-Returns `nil` when offline recognition is not active or when no match is found. See [Offline recognition](../guides/offline-recognition.md).
+Returns `nil` when offline recognition is not active or when no match is found. See [Offline Recognition](../guides/offline-recognition.md).
 
 ### setDeviceID(_:)
 
@@ -217,7 +219,7 @@ Concurrent calls are deduplicated: if a sync is already in flight, later callers
 
 Sync failures do not affect the existing local data. Recognition continues to use whatever was last successfully synced.
 
-See [Offline recognition](../guides/offline-recognition.md).
+See [Offline Recognition](../guides/offline-recognition.md).
 
 > **Throws:** [`IROfflineEngineError.notIntegrated`](irofflineengineerror.md#irofflineengineerrornotintegrated) when no offline engine is registered, or any error the engine surfaces.
 
@@ -338,7 +340,7 @@ static func configure(with configuration: IRVisionConfiguration)
 
 #### Discussion
 
-Offline recognition is an optional, host-injected capability that is independent of this call. To use it, register an engine with [`registerOfflineRecognitionEngine(_:)`](irvision.md#registerofflinerecognitionengine_), enable it via [`setOfflineEngineEnabled(_:)`](irvision.md#setofflineengineenabled_), and hydrate the catalog with [`syncOfflineIRCodes(force:)`](irvision.md#syncofflineircodesforce). See [Offline recognition](../guides/offline-recognition.md).
+Offline recognition is an optional, host-injected capability that is independent of this call. To use it, register an engine with [`registerOfflineRecognitionEngine(_:)`](irvision.md#registerofflinerecognitionengine_), enable it via [`setOfflineEngineEnabled(_:)`](irvision.md#setofflineengineenabled_), and hydrate the catalog with [`syncOfflineIRCodes(force:)`](irvision.md#syncofflineircodesforce). See [Offline Recognition](../guides/offline-recognition.md).
 
 When the subscription key changes, the SDK snapshots the outgoing lens’s mutable settings (including debug-sheet edits and the offline toggle) and restores the incoming lens’s namespace so configuration never leaks between lenses. Reconfiguring with the **same** key keeps that lens’s state (including a previously enabled offline toggle).
 

@@ -23,8 +23,8 @@ While idle the overlay is fully transparent and ignores hit-testing, so it can l
 
 - **Tap-to-scan** — use it when the viewer is already watching content in _your_ player and you want to make a moment shoppable or informative without sending them to a camera. This is the recommended path for “second screen” / shoppable-video experiences.
 - **Live camera lens** ([`IRCameraView`](../reference/ircameraview.md)) — use it when you want IRKit to own a full live camera UI.
-- **Burst recognition with your own result UI** ([`identifyImage(schedule:framing:firstFrame:captureFrame:)`](../reference/irvision.md#identifyimagescheduleframingfirstframecaptureframe)) — use it when you want the same multi-frame recognition this overlay performs but intend to present the result yourself. See [Burst recognition without the overlay](../index.md).
-- **Still-image recognition** ([`identifyImage(_:)`](../reference/irvision.md#identifyimage_)) — use it when you have a single `UIImage` from a photo picker or your own capture pipeline and want to build a fully custom result UI. See [Recognizing still images](static-image-recognition.md).
+- **Burst recognition with your own result UI** ([`identifyImage(schedule:framing:firstFrame:recordsScan:captureFrame:)`](../reference/irvision.md#identifyimagescheduleframingfirstframerecordsscancaptureframe)) — use it when you want the same multi-frame recognition this overlay performs but intend to present the result yourself. See [Burst recognition without the overlay](../index.md).
+- **Still-image recognition** ([`identifyImage(_:recordsScan:)`](../reference/irvision.md#identifyimage_recordsscan)) — use it when you have a single `UIImage` from a photo picker or your own capture pipeline and want to build a fully custom result UI. See [Recognizing still images](static-image-recognition.md).
 
 ## Requirements
 

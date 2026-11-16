@@ -123,6 +123,14 @@ Job title/role associated with the contact, if provided.
 var jobTitle: String? { get }
 ```
 
+### languages
+
+Every language the IRCODE can be shown in, primary first. Empty on responses that weren’t asked for a language.
+
+```swift
+var languages: [String] { get }
+```
+
 ### lastName
 
 Contact last name extracted from the image metadata, if provided.
@@ -142,6 +150,8 @@ var micrositeURL: URL? { get }
 #### Discussion
 
 Returns the first link flagged `onScanDisplay` that is a normal embeddable web link (not `openInNewWindow`, not `privateDetails`) and resolves to a valid URL. Returns `nil` for IRCODEs without a microsite — callers can use this to ignore non-microsite results.
+
+For a match from [`identifyImage(_:recordsScan:)`](irvision.md#identifyimage_recordsscan), the URL already carries the scan’s attribution: pairing params on an ircode.tv microsite, `irclid` and `irsid` on any other site. Open it as returned.
 
 ### phone
 
@@ -175,12 +185,28 @@ var previewTitle: String { get }
 
 Populated from the result metadata.
 
+### primaryLanguage
+
+The language of the primary rows, lowercase BCP 47 (`en` when the IRCODE never set one). Nil on responses that weren’t asked for a language.
+
+```swift
+var primaryLanguage: String? { get }
+```
+
 ### products
 
 Product links associated with the image, extracted from metadata.
 
 ```swift
 var products: [ProductLinkModel] { get }
+```
+
+### servedLanguage
+
+The language served for the most preferred requested one the IRCODE has; its primary language when none. Nil on responses that weren’t asked for a language.
+
+```swift
+var servedLanguage: String? { get }
 ```
 
 ### subtitle
