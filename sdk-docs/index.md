@@ -10,7 +10,7 @@ Recognize IRCODE-enabled images in your app with a live camera experience or a s
 IRKit exposes two primary partner integration paths:
 
 - Use [`IRCameraView`](reference/ircameraview.md) when you want IRKit to provide the camera UI and result-card experience.
-- Use [`identifyImage(_:)`](reference/irvision.md#identifyimage_) when you already have a `UIImage` from your own camera flow, a photo picker, or a paused video frame.
+- Use [`identifyImage(_:recordsScan:)`](reference/irvision.md#identifyimage_recordsscan) when you already have a `UIImage` from your own camera flow, a photo picker, or a paused video frame.
 
 `IRCameraView` is the fastest way to get a live recognition experience into a SwiftUI app. For UIKit apps, embed that same SwiftUI view inside a `UIHostingController`.
 
@@ -86,7 +86,7 @@ For a deeper guide — including the Live+ vs Snapshot modes and orientation sup
 
 ### Still-image Recognition
 
-Use [`identifyImage(_:)`](reference/irvision.md#identifyimage_) when your app already has a `UIImage`:
+Use [`identifyImage(_:recordsScan:)`](reference/irvision.md#identifyimage_recordsscan) when your app already has a `UIImage`:
 
 ```swift
 import IRKit
@@ -168,7 +168,7 @@ IRKit does not ship a separate `IRCameraViewController`. For UIKit apps, present
 
 ## Recognition Guides
 
-- [Recognizing still images](guides/static-image-recognition.md): Use identifyImage(_:) when your app already has a UIImage and you want IRKit to return metadata without presenting the built-in camera UI
+- [Recognizing still images](guides/static-image-recognition.md): Use identifyImage(_:recordsScan:) when your app already has a UIImage and you want IRKit to return metadata without presenting the built-in camera UI
 - [Offline recognition](guides/offline-recognition.md): Recognize IRCODE-enabled images on-device using an optional, host-integrated recognition engine
 
 ## Offline Recognition (Optional Engine)

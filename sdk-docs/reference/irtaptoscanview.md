@@ -36,7 +36,7 @@ Creates a tap-to-scan overlay.
 
 - `isActive`: Set to `true` by the host to start a scan; the SDK sets it back to `false` when the experience finishes.
 - `subscriptionKey`: Optional lens/subscription key to activate for this scan (per-content lenses). When `nil`, the host’s current IRVision configuration is used.
-- `captureFrame`: Returns the player frame to scan, as it is at the moment of the call. Called several times per scan — once per attempt of [`tapToScan`](irburstschedule.md#taptoscan) — so that a burst samples the scene as it moves rather than querying one frame repeatedly. Return `nil` from the first call to abort the scan (the overlay deactivates); `nil` from a later call just skips that attempt.
+- `captureFrame`: Returns the player frame to scan, as it is at the moment of the call. Called several times per scan — once per attempt of [`tapToScan`](irburstschedule.md#taptoscan) — so that a burst samples the scene as it moves rather than querying one frame repeatedly. Return `nil` from the first call (and a short retry window) to abort the scan; `nil` from a later call just skips that attempt.
 - `onResultLinkTapped`: Optional host interception of result-card links. Returning `true` skips the SDK’s default navigation.
 - `onWillPresentExternalContent`: Called before external web content is shown (host should pause its player).
 - `onDidDismissExternalContent`: Called after external web content is dismissed (host should resume its player).

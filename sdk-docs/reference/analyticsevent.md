@@ -3,28 +3,30 @@ title: "AnalyticsEvent"
 description: "An analytics event: a button press, link, scan, status or view"
 ---
 
+An analytics event: a button press, link, scan, status or view.
+
 ```swift
 enum AnalyticsEvent
 ```
 
 ## Enumeration Cases
 
-### AnalyticsEvent.buttonPressed(buttonType:buttonSource:buttonTitle:buttonLink:linkToFollow:image:viewSource:viewType:durationMs:title:failed:category:)
+### AnalyticsEvent.buttonPressed(buttonType:buttonSource:buttonTitle:buttonLink:linkToFollow:image:viewSource:viewType:durationMs:title:failed:category:clickID:)
 
 ```swift
-case buttonPressed(buttonType: ButtonType, buttonSource: ButtonSource, buttonTitle: String? = nil, buttonLink: String? = nil, linkToFollow: String? = nil, image: IRAnalyticsImageRepresentable? = nil, viewSource: ViewSource? = nil, viewType: ViewType? = nil, durationMs: Double? = nil, title: String? = nil, failed: Bool = false, category: String? = nil)
+case buttonPressed(buttonType: ButtonType, buttonSource: ButtonSource, buttonTitle: String? = nil, buttonLink: String? = nil, linkToFollow: String? = nil, image: IRAnalyticsImageRepresentable? = nil, viewSource: ViewSource? = nil, viewType: ViewType? = nil, durationMs: Double? = nil, title: String? = nil, failed: Bool = false, category: String? = nil, clickID: String? = nil)
 ```
 
-### AnalyticsEvent.link(buttonType:image:scanTrackingID:linkToFollow:viewSource:durationMs:failed:category:)
+### AnalyticsEvent.link(buttonType:image:scanTrackingID:linkToFollow:viewSource:durationMs:failed:category:clickID:)
 
 ```swift
-case link(buttonType: ButtonType, image: IRAnalyticsImageRepresentable, scanTrackingID: String, linkToFollow: String, viewSource: ViewSource, durationMs: Double? = nil, failed: Bool = false, category: String? = nil)
+case link(buttonType: ButtonType, image: IRAnalyticsImageRepresentable, scanTrackingID: String, linkToFollow: String, viewSource: ViewSource, durationMs: Double? = nil, failed: Bool = false, category: String? = nil, clickID: String? = nil)
 ```
 
-### AnalyticsEvent.scan(scanType:durationMs:matched:trackingId:image:viewSource:buttonSource:buttonType:failed:category:similarCount:recognizedOffline:)
+### AnalyticsEvent.scan(scanType:durationMs:matched:trackingId:image:viewSource:buttonSource:buttonType:failed:category:similarCount:recognizedOffline:clickID:)
 
 ```swift
-case scan(scanType: ScanType, durationMs: Double, matched: Bool, trackingId: String, image: IRAnalyticsImageRepresentable? = nil, viewSource: ViewSource? = nil, buttonSource: ButtonSource? = nil, buttonType: ButtonType? = nil, failed: Bool = false, category: String? = nil, similarCount: Int? = nil, recognizedOffline: Bool = false)
+case scan(scanType: ScanType, durationMs: Double, matched: Bool, trackingId: String, image: IRAnalyticsImageRepresentable? = nil, viewSource: ViewSource? = nil, buttonSource: ButtonSource? = nil, buttonType: ButtonType? = nil, failed: Bool = false, category: String? = nil, similarCount: Int? = nil, recognizedOffline: Bool = false, clickID: String? = nil)
 ```
 
 ### AnalyticsEvent.status(statusType:durationMs:image:)

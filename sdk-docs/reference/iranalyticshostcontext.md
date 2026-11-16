@@ -1,7 +1,9 @@
 ---
 title: "IRAnalyticsHostContext"
-description: "Your app's user, attached to analytics events through setHostContext(_:)"
+description: "Your app’s user, attached to analytics events through setHostContext(_:)"
 ---
+
+Your app’s user, attached to analytics events through [`setHostContext(_:)`](analyticsservice.md#sethostcontext_).
 
 ```swift
 protocol IRAnalyticsHostContext : AnyObject

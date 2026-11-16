@@ -155,7 +155,7 @@ IRCameraView()
     }
 ```
 
-The still-image API [`identifyImage(_:)`](../reference/irvision.md#identifyimage_) likewise returns the same [`ImageModel`](../reference/imagemodel.md) shape regardless of which path produced it.
+The still-image API [`identifyImage(_:recordsScan:)`](../reference/irvision.md#identifyimage_recordsscan) likewise returns the same [`ImageModel`](../reference/imagemodel.md) shape regardless of which path produced it.
 
 ### Recognize On-device Only
 
@@ -167,7 +167,7 @@ if let match = await IRVision.shared.recognizeOffline(image) {
 }
 ```
 
-Both return `nil` when offline recognition is not active (no engine registered, disabled, or preflight not passed) or when no match is found. Prefer [`identifyImage(_:)`](../reference/irvision.md#identifyimage_) for the standard experience that favors the richer online result while reachable.
+Both return `nil` when offline recognition is not active (no engine registered, disabled, or preflight not passed) or when no match is found. Prefer [`identifyImage(_:recordsScan:)`](../reference/irvision.md#identifyimage_recordsscan) for the standard experience that favors the richer online result while reachable.
 
 ## Clear the Local Catalog
 

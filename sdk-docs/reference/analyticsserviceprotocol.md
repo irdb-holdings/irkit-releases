@@ -3,6 +3,8 @@ title: "AnalyticsServiceProtocol"
 description: "The analytics interface: identify the current user and track events"
 ---
 
+The analytics interface: identify the current user and track events.
+
 ```swift
 protocol AnalyticsServiceProtocol
 ```

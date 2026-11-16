@@ -18,6 +18,14 @@ The SDK records the interaction before invoking the host-provided handler.
 
 ## Instance Properties
 
+### clickID
+
+The click ID IRKit sent on this tap’s statistics event. `url` carries it as `irclid` unless the destination is an ircode.tv microsite or not a web link.
+
+```swift
+let clickID: String
+```
+
 ### icon
 
 Optional icon name/string associated with the link (when applicable).
@@ -90,7 +98,7 @@ let title: String?
 
 ### url
 
-Resolved destination URL, if the string was a valid URL.
+The URL to open. IRKit has already added the scan’s attribution to it: the pairing params on an ircode.tv microsite, `irclid` and `irsid` on any other site. Open this one so a later conversion joins back to the scan.
 
 ```swift
 let url: URL
@@ -98,7 +106,7 @@ let url: URL
 
 ### urlString
 
-Original URL string supplied with the result.
+Original URL string supplied with the result, before any attribution was added.
 
 ```swift
 let urlString: String

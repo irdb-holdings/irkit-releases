@@ -1,10 +1,10 @@
 ---
 title: "Recognizing Still Images"
-description: "Use identifyImage(_:) when your app already has a UIImage and you want IRKit to return metadata without presenting the built-in camera UI"
+description: "Use identifyImage(_:recordsScan:) when your app already has a UIImage and you want IRKit to return metadata without presenting the built-in camera UI"
 order: 6
 ---
 
-Use [`identifyImage(_:)`](../reference/irvision.md#identifyimage_) when your app already has a `UIImage` and you want IRKit to return metadata without presenting the built-in camera UI.
+Use [`identifyImage(_:recordsScan:)`](../reference/irvision.md#identifyimage_recordsscan) when your app already has a `UIImage` and you want IRKit to return metadata without presenting the built-in camera UI.
 
 ## When to Use This Flow
 
@@ -42,7 +42,7 @@ IRKit accepts a `UIImage`. How you obtain it is up to your host app:
 
 ## Step 3: Run Recognition
 
-Call [`identifyImage(_:)`](../reference/irvision.md#identifyimage_) from an async context.
+Call [`identifyImage(_:recordsScan:)`](../reference/irvision.md#identifyimage_recordsscan) from an async context. Leave `recordsScan` at its default for images a person chose or pointed a camera at. Pass `recordsScan: false` for automated checks, such as tests, so they do not count as scans in IRCODE's statistics.
 
 ```swift
 import UIKit

@@ -1,7 +1,9 @@
 ---
 title: "IRAnalyticsImageRepresentable"
-description: "A type that describes an IRCODE in an analytics event's image parameter"
+description: "A type that describes an IRCODE in an analytics event’s image parameter"
 ---
+
+A type that describes an IRCODE in an analytics event’s image parameter.
 
 ```swift
 protocol IRAnalyticsImageRepresentable
@@ -43,6 +45,22 @@ var analyticsImageTitle: String? { get }
 
 ```swift
 var analyticsImageURLString: String? { get }
+```
+
+### analyticsRequestedLanguages
+
+The `lang` list the scan’s lookup carried, comma-separated, most preferred first; nil when it carried none.
+
+```swift
+var analyticsRequestedLanguages: String? { get }
+```
+
+### analyticsServedLanguage
+
+The metadata language the scan’s card was served in (the lookup’s `servedLanguage`); nil when none was asked for.
+
+```swift
+var analyticsServedLanguage: String? { get }
 ```
 
 ### analyticsSimilarCount
