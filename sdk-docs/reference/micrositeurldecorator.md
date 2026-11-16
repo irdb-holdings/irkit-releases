@@ -25,7 +25,7 @@ static func decorate(_ url: URL, scanID: String? = nil) -> URL
 
 ### decorateOutbound(_:clickID:scan:)
 
-Decorates a URL the user is opening from a scan, the way the web app’s `decorateOutboundUrl` does.
+Decorates a URL the user is opening from a scan.
 
 ```swift
 static func decorateOutbound(_ url: URL, clickID: String?, scan: ScanAttribution = .currentSession) -> URL
@@ -33,7 +33,7 @@ static func decorateOutbound(_ url: URL, clickID: String?, scan: ScanAttribution
 
 #### Discussion
 
-Ircode.Tv microsites get their pairing params from [`decorate(_:scanID:)`](micrositeurldecorator.md#decorate_scanid) and mint their own click IDs for the clicks they send on. Any other http(s) site gets `irclid` (this open’s click ID) and `irsid` (the scan’s tracking ID), which a conversion pixel or postback carries back so a sale joins to its click and scan. Pass the same `clickID` on the open’s statistics event.
+Microsites on ircode.tv get their pairing params from [`decorate(_:scanID:)`](micrositeurldecorator.md#decorate_scanid) and mint their own click IDs for the clicks they send on. Any other http(s) site gets `irclid` (this open’s click ID) and `irsid` (the scan’s tracking ID), which a conversion pixel or postback carries back so a sale joins to its click and scan. Pass the same `clickID` on the open’s statistics event.
 
 Params already on the URL win, a missing value is left out rather than sent empty, and any other scheme (`tel:`, `mailto:`, app links) is returned untouched.
 

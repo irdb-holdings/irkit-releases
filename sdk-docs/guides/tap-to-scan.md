@@ -13,7 +13,7 @@ Tap-to-scan overlays an IRCODE scanning experience on top of _your own_ video pl
 [`IRTapToScanView`](../reference/irtaptoscanview.md) is a transparent SwiftUI overlay you place above your player. When the viewer activates it, IRKit:
 
 1. runs a scanning animation over the _still-playing_ video (the overlay is transparent, so your video shows through — IRKit does **not** freeze or pause it),
-2. performs recognition as a **burst**, calling your `captureFrame` closure at several moments over the next few seconds until one of them matches (see [Capturing the frame](../index.md)),
+2. performs recognition as a **burst**, calling your `captureFrame` closure at several moments over the next few seconds until one of them matches (see [Capturing the frame](tap-to-scan.md#capturing-the-frame)),
 3. on a match, presents an orientation-adaptive result takeover that reuses the same result cards as [`IRCameraView`](../reference/ircameraview.md) (general / product / art cards, an embedded scan-to-site web view, or a hand-off to an external browser), and
 4. on no match, shows a brief “No IRCODE found” hint that dismisses itself.
 
@@ -23,7 +23,7 @@ While idle the overlay is fully transparent and ignores hit-testing, so it can l
 
 - **Tap-to-scan** — use it when the viewer is already watching content in _your_ player and you want to make a moment shoppable or informative without sending them to a camera. This is the recommended path for “second screen” / shoppable-video experiences.
 - **Live camera lens** ([`IRCameraView`](../reference/ircameraview.md)) — use it when you want IRKit to own a full live camera UI.
-- **Burst recognition with your own result UI** ([`identifyImage(schedule:framing:firstFrame:recordsScan:captureFrame:)`](../reference/irvision.md#identifyimagescheduleframingfirstframerecordsscancaptureframe)) — use it when you want the same multi-frame recognition this overlay performs but intend to present the result yourself. See [Burst recognition without the overlay](../index.md).
+- **Burst recognition with your own result UI** ([`identifyImage(schedule:framing:firstFrame:recordsScan:captureFrame:)`](../reference/irvision.md#identifyimagescheduleframingfirstframerecordsscancaptureframe)) — use it when you want the same multi-frame recognition this overlay performs but intend to present the result yourself. See [Burst recognition without the overlay](tap-to-scan.md#burst-recognition-without-the-overlay).
 - **Still-image recognition** ([`identifyImage(_:recordsScan:)`](../reference/irvision.md#identifyimage_recordsscan)) — use it when you have a single `UIImage` from a photo picker or your own capture pipeline and want to build a fully custom result UI. See [Recognizing still images](static-image-recognition.md).
 
 ## Requirements
@@ -42,7 +42,7 @@ let configuration = IRVisionConfiguration(subscriptionKey: "your-subscription-ke
 IRVision.configure(with: configuration)
 ```
 
-If a single piece of content should be matched against a _different_ lens, pass `subscriptionKey` per scan instead of reconfiguring — see [Per-content lenses](../index.md) below.
+If a single piece of content should be matched against a _different_ lens, pass `subscriptionKey` per scan instead of reconfiguring — see [Per-content lenses](tap-to-scan.md#per-content-lenses) below.
 
 ## Quick Start
 
@@ -81,7 +81,7 @@ The video keeps playing behind the transparent scanning overlay. Add the lifecyc
 
 Because your video keeps playing, each attempt samples a _different_ moment of the scene. Attempts overlap rather than queue and stop at the first hit, so a quick match can finish early. The default burst may continue for up to 12 seconds when no match is found.
 
-Returning `nil` from the **first** call aborts the scan — the overlay deactivates immediately without scanning (and flips `isActive` back to `false`). Returning `nil` from a later call just skips that one attempt, which is the right answer when no new frame has been decoded yet.
+If the **first** call returns `nil`, the overlay asks again for about a third of a second, since a live stream often has no decoded frame at the moment of the tap. If there is still no frame, the scan is aborted — the overlay deactivates without scanning (and flips `isActive` back to `false`). Returning `nil` from a later call just skips that one attempt, which is the right answer when no new frame has been decoded yet.
 
 Keep the closure cheap. It runs on the main actor, so do not decode, resize, or re-encode anything in it beyond copying the current frame — the SDK builds the query image off the main thread.
 
