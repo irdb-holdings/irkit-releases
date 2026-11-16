@@ -1,6 +1,6 @@
 ---
 title: "Tap2ScanLens API"
-description: "The Tap2ScanLens composable's API"
+description: "The Tap2ScanLens view's API"
 order: 11
 ---
 

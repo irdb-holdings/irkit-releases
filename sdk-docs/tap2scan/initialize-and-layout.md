@@ -18,7 +18,7 @@ Initialize [`Tap2Scan`](overview.md) with your subscription key, then overlay [`
 
 ## Recommended Sample
 
-```
+```kotlin
 Tap2Scan.initialize(context, subscriptionKey)
 
 // After PlayerView (or other media View) is on screen:

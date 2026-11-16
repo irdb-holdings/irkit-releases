@@ -24,12 +24,12 @@ Add this in `settings.gradle.kts` under `dependencyResolutionManagement.reposito
 
 All four artifacts are published under the same version. Use one version string for the whole set.
 
-| Coordinate                 | What it provides (client view)                                                                                                                                                                                                         |
-| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `com.irdb:irkit-logging`   | Shared logging used by the other IRKit libraries. Delivered with the release set; often resolved transitively.                                                                                                                         |
-| `com.irdb:irkit-library`   | Core SDK: [`IRKit`](../reference/irkit-api.md), [`IREngine`](../reference/irkit-api.md), shared result models ([`ImageModelShared`](../models/imagemodel-shared.md), products).                                                        |
-| `com.irdb:irkit-ui`        | Scanner UI: [`IRKitLens`](../components/irkitlens-overview.md) Compose composable, [`IRKitUI`](../reference/irkit-api.md) helpers (`deInitialize`, build info, credits), and Tap2Scan (`Tap2Scan` / `Tap2ScanLens`) — not a fifth AAR. |
-| `com.irdb:irkit-analytics` | Required companion AAR — use the same version as the other IRKit AARs                                                                                                                                                                  |
+| Coordinate                 | What it provides (client view)                                                                                                                                                                                                                                    |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `com.irdb:irkit-logging`   | Shared logging used by the other IRKit libraries. Delivered with the release set; often resolved transitively.                                                                                                                                                    |
+| `com.irdb:irkit-library`   | Core SDK: [`IRKit`](../reference/irkit-api.md), [`IREngine`](../reference/irkit-api.md), shared result models ([`ImageModelShared`](../models/imagemodel-shared.md), products).                                                                                   |
+| `com.irdb:irkit-ui`        | Scanner UI: [`IRKitLens`](../components/irkitlens-overview.md) Compose composable, [`IRKitUI`](../reference/irkit-api.md) helpers (`deInitialize`, build info, credits), and [Tap2Scan](../tap2scan/overview.md) (`Tap2Scan` / `Tap2ScanLens`) — not a fifth AAR. |
+| `com.irdb:irkit-analytics` | Required companion AAR — use the same version as the other IRKit AARs                                                                                                                                                                                             |
 
 ## Gradle Dependencies
 

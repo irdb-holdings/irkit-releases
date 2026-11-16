@@ -4,7 +4,7 @@ description: "The IRKitLens composable's API"
 order: 12
 ---
 
-Package: `com.irdb.irkitui`. Full parameter tables: Parameters. Hosting: [`IRKitLens`](../components/irkitlens-overview.md).
+Package: `com.irdb.irkitui`. Full parameter tables: [Parameters](../components/irkitlens-parameters.md). Hosting: [`IRKitLens`](../components/irkitlens-overview.md).
 
 ## Signature (Client-relevant)
 

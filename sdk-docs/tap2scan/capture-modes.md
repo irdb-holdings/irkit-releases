@@ -18,7 +18,7 @@ Your app owns the player. Tap2Scan captures an image from what is on screen and 
 
 Tell Tap2Scan which media is playing. Call this after the player view is on screen (see [Initialize & layout](initialize-and-layout.md) or [IRKitTap2ScanActivity](../integration/irkittap2scan-activity.md)).
 
-```
+```kotlin
 tap2ScanLens.setHostOwnedCapture(
     mediaUri = streamUrl,                 // same URI the player is using
     positionMs = { player.currentPosition },

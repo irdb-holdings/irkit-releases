@@ -31,7 +31,7 @@ order: 12
 
 `Tap2ScanButtonStyle.DEFAULT` is the default instance. Apply with:
 
-```
+```kotlin
 tap2ScanLens.setButtonStyle(
     Tap2ScanButtonStyle(
         leadingText = "SCAN WITH",
