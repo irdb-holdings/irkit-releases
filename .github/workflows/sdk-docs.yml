@@ -15,7 +15,7 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           # gh-pages also holds every Maven AAR; the check needs only these.
           sparse-checkout: |
@@ -24,7 +24,7 @@ jobs:
             Package.swift
             com/irdb/irkit-ui/maven-metadata.xml
           sparse-checkout-cone-mode: false
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version: 24
       - run: .github/scripts/check-release-docs.sh

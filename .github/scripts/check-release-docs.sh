@@ -10,8 +10,16 @@
 # Then check_sdk_docs.mjs checks every page, and that CHANGELOG.md has an entry for that version.
 # Run by .github/workflows/sdk-docs.yml on every push and pull request to main and gh-pages, and by
 # the SDK repos' release tooling before they commit a release.
+#
+# Exits 1 when the docs have problems, and 2 when it can't check them: no published version to
+# read, or no node.
 set -euo pipefail
 cd "$(dirname "$0")/../.."
+
+if ! command -v node >/dev/null 2>&1; then
+  echo "node not found; check_sdk_docs.mjs runs on it (brew install node)." >&2
+  exit 2
+fi
 
 if [[ -f Package.swift ]]; then
   platform=iOS
