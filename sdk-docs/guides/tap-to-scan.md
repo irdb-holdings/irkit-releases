@@ -38,7 +38,10 @@ Tap-to-scan recognizes images against whatever lens [`IRVision`](../reference/ir
 ```swift
 import IRKit
 
-let configuration = IRVisionConfiguration(subscriptionKey: "your-subscription-key")
+let configuration = IRVisionConfiguration(
+    subscriptionKey: "your-subscription-key",
+    analyticsCompany: "your-company"
+)
 IRVision.configure(with: configuration)
 ```
 

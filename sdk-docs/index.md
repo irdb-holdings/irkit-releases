@@ -36,7 +36,8 @@ import IRKit
 struct YourApp: App {
     init() {
         var configuration = IRVisionConfiguration(
-            subscriptionKey: "your-subscription-key"
+            subscriptionKey: "your-subscription-key",
+            analyticsCompany: "your-company"
         )
 
         IRVision.configure(with: configuration)

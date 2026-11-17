@@ -12,7 +12,8 @@ Use [`IRVisionConfiguration`](../reference/irvisionconfiguration.md) to initiali
 import IRKit
 
 var configuration = IRVisionConfiguration(
-    subscriptionKey: "your-subscription-key"
+    subscriptionKey: "your-subscription-key",
+    analyticsCompany: "your-company"
 )
 
 IRVision.configure(with: configuration)
@@ -46,7 +47,7 @@ Select the service environment:
 
 ### `analyticsCompany`
 
-Partner or company identifier associated with IRKit analytics events.
+Required. Partner or company identifier associated with IRKit analytics events.
 
 ### `appSource`
 
