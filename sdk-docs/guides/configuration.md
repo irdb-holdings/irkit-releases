@@ -74,6 +74,34 @@ configuration.segmentationModelName = "your-model-name"
 IRVision.configure(with: configuration)
 ```
 
+### `preferredMetadataLanguages`
+
+Optional. The languages to ask for result metadata in, most preferred first, as BCP 47 tags such as `"es-MX"` or `"fr"`. Leave it `nil` (the default) to use the device’s preferred languages.
+
+Each IRCODE is shown in the first requested language it has a translation for, and in its primary language when it has none of them. Set this when your app offers its own language setting that can differ from the device’s.
+
+```swift
+var configuration = IRVisionConfiguration(
+    subscriptionKey: "your-subscription-key",
+    analyticsCompany: "your-company"
+)
+configuration.preferredMetadataLanguages = ["es-MX", "es", "en"]
+
+IRVision.configure(with: configuration)
+```
+
+The [`ImageModel`](../reference/imagemodel.md) of a result recognized online reports the language it was served in (`servedLanguage`), its primary language (`primaryLanguage`), and every language it can be shown in (`languages`). See [Understanding Result Models](result-models.md).
+
+### `showsArtCards`
+
+Optional. Set it to `true` to show art-card IRCODEs as results. An art card carries an artwork’s details: artist, title, year, medium and the rest. It defaults to `false`, and then an art-card match is treated as no result everywhere IRKit recognizes: in [`IRCameraView`](../reference/ircameraview.md), [`IRTapToScanView`](../reference/irtaptoscanview.md), [`identifyImage(_:recordsScan:)`](../reference/irvision.md#identifyimage_recordsscan) and its [burst form](../reference/irvision.md#identifyimagescheduleframingfirstframerecordsscancaptureframe), and offline recognition.
+
+```swift
+configuration.showsArtCards = true
+```
+
+Both settings are read when you call [`configure(with:)`](../reference/irvision.md#configurewith). To change one later, set it on a configuration and call `configure(with:)` again.
+
 ### Offline Recognition (Optional)
 
 Offline recognition is an optional, on-device capability provided by a host-integrated engine and enabled at runtime. It is **off by default** and is not configured through [`IRVisionConfiguration`](../reference/irvisionconfiguration.md). To use it, register the engine with [`registerOfflineRecognitionEngine(_:)`](../reference/irvision.md#registerofflinerecognitionengine_) and enable it with [`setOfflineEngineEnabled(_:)`](../reference/irvision.md#setofflineengineenabled_). A host that does not integrate an engine runs online-only. See [Offline recognition](offline-recognition.md) for the integration guide.

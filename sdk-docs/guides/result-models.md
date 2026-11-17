@@ -24,6 +24,7 @@ Commonly used properties include:
 - `collectionName`: collection the matched image belongs to when returned by the API
 - `firstName`, `lastName`, `address`, `company`, `jobTitle`, `phone`, and `email`: contact-oriented metadata when present
 - `products`: associated [`ProductLinkModel`](../reference/productlinkmodel.md) entries
+- `servedLanguage`, `primaryLanguage`, and `languages`: the language the metadata was served in, the IRCODE’s primary language, and every language it can be shown in, primary first (see [`preferredMetadataLanguages`](configuration.md#preferredmetadatalanguages))
 
 > **Note:** Results delivered through the optional offline recognition engine (see [Offline recognition](offline-recognition.md)) use the same `ImageModel` type as online results. The fields available depend on the data supplied by the registered engine.
 
