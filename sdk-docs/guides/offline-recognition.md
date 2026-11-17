@@ -72,10 +72,13 @@ Because the engine is optional, the SDK gates every offline path behind a runtim
 switch await IRVision.setOfflineEngineEnabled(true) {
 case .ready:
     // good to sync + recognize on-device
+    break
 case .unavailable(.notIntegrated):
     // engine package not in this build — online only
+    break
 case .unavailable(.preflightFailed):
     // engine present but couldn't start — online only
+    break
 case .notEnabled:
     break
 }

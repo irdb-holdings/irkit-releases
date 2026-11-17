@@ -44,6 +44,7 @@ final class CameraContainerViewController: UIViewController {
             .showGuidingRectangle(true)
             .onIRCodeRecognized { imageModel in
                 print(imageModel.imageID)
+                return false
             }
 
         let hostingController = UIHostingController(rootView: AnyView(cameraView))

@@ -25,7 +25,8 @@ Call [`configure(with:)`](../reference/irvision.md#configurewith) before making 
 import IRKit
 
 var configuration = IRVisionConfiguration(
-    subscriptionKey: "your-subscription-key"
+    subscriptionKey: "your-subscription-key",
+    analyticsCompany: "your-company"
 )
 
 IRVision.configure(with: configuration)
