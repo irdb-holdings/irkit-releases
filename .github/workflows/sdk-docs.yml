@@ -1,0 +1,30 @@
+# The Developer Portal publishes sdk-docs/ from this repo: iOS from main, Android from gh-pages.
+# This fails when the docs don't describe the release the branch publishes, or a page is broken.
+name: SDK docs
+
+on:
+  push:
+    branches: [main, gh-pages]
+  pull_request:
+    branches: [main, gh-pages]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # gh-pages also holds every Maven AAR; the check needs only these.
+          sparse-checkout: |
+            .github
+            sdk-docs
+            Package.swift
+            com/irdb/irkit-ui/maven-metadata.xml
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: .github/scripts/check-release-docs.sh
