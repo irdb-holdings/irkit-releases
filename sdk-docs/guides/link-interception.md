@@ -28,7 +28,7 @@ Your handler returns a `Bool`:
 ```swift
 IRCameraView()
     .onResultLinkTapped { info in
-        print(info.urlString)
+        print(info.url)
         return true
     }
 ```
@@ -39,9 +39,17 @@ IRCameraView()
 
 - `kind`: whether the action came from a general link, scan-to-site action, or product
 - `source`: where in the UI the tap happened
-- `url` and `urlString`: the destination
+- `url`: the destination to open, with the scan's attribution already added
+- `urlString`: the destination as the IRCODE's owner entered it, before attribution
+- `clickID`: the click ID IRKit sent on this tap's statistics event
 - `title` and `icon`: presentation metadata when available
 - `imageID`, `imagePreviewTitle`, and `imagePreviewSubtitle`: context about the recognized result
+
+## Open `url`, Not `urlString`
+
+When your app opens the destination itself, open `url`. IRKit has added the scan's attribution to it: the pairing parameters on an ircode.tv microsite, and `irclid` and `irsid` on any other site. A purchase or sign-up on that site can then be joined back to the scan. `urlString` is the link as it was entered, without that attribution, so opening it loses the conversion.
+
+Use `urlString` only to show or compare the original link, for example to recognize your own domain.
 
 ## Example: Present a Confirmation Dialog
 
@@ -77,7 +85,7 @@ struct CameraScreen: View {
 
                 Button("Cancel", role: .cancel) {}
             } message: {
-                Text(pendingLinkTap?.urlString ?? "")
+                Text(pendingLinkTap?.url.absoluteString ?? "")
             }
     }
 }
@@ -87,7 +95,7 @@ struct CameraScreen: View {
 
 Typical host-app implementations include:
 
-- opening links inside an in-app browser
+- opening `url` inside an in-app browser
 - routing products into a native commerce experience
 - showing a confirmation alert before leaving the app
 - recording additional partner analytics
