@@ -76,9 +76,9 @@ IRVision.configure(with: configuration)
 
 ### `preferredMetadataLanguages`
 
-Optional. The languages to ask for result metadata in, most preferred first, as BCP 47 tags such as `"es-MX"` or `"fr"`. Leave it `nil` (the default) to use the device's preferred languages.
+Optional. The languages to ask for result metadata in, most preferred first, as BCP 47 tags such as `"es-MX"` or `"fr"`. Leave it `nil` (the default) to use the device’s preferred languages.
 
-Each IRCODE is shown in the first requested language it has a translation for, and in its primary language when it has none of them. Set this when your app offers its own language setting that can differ from the device's.
+Each IRCODE is shown in the first requested language it has a translation for, and in its primary language when it has none of them. Set this when your app offers its own language setting that can differ from the device’s.
 
 ```swift
 var configuration = IRVisionConfiguration(
@@ -90,11 +90,11 @@ configuration.preferredMetadataLanguages = ["es-MX", "es", "en"]
 IRVision.configure(with: configuration)
 ```
 
-Every recognized [`ImageModel`](../reference/imagemodel.md) reports the language it was served in (`servedLanguage`), its primary language (`primaryLanguage`), and every language it can be shown in (`languages`). See [Understanding Result Models](result-models.md).
+The [`ImageModel`](../reference/imagemodel.md) of a result recognized online reports the language it was served in (`servedLanguage`), its primary language (`primaryLanguage`), and every language it can be shown in (`languages`). See [Understanding Result Models](result-models.md).
 
 ### `showsArtCards`
 
-Optional. Set it to `true` to show art-card IRCODEs as results. An art card carries an artwork's details: artist, title, year, medium and the rest. It defaults to `false`, and then an art-card match is treated as no result, in [`IRCameraView`](../reference/ircameraview.md), [`identifyImage(_:recordsScan:)`](../reference/irvision.md#identifyimage_recordsscan) and offline recognition alike.
+Optional. Set it to `true` to show art-card IRCODEs as results. An art card carries an artwork’s details: artist, title, year, medium and the rest. It defaults to `false`, and then an art-card match is treated as no result everywhere IRKit recognizes: in [`IRCameraView`](../reference/ircameraview.md), [`IRTapToScanView`](../reference/irtaptoscanview.md), [`identifyImage(_:recordsScan:)`](../reference/irvision.md#identifyimage_recordsscan) and its [burst form](../reference/irvision.md#identifyimagescheduleframingfirstframerecordsscancaptureframe), and offline recognition.
 
 ```swift
 configuration.showsArtCards = true

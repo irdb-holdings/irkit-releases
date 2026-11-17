@@ -39,21 +39,21 @@ IRCameraView()
 
 - `kind`: whether the action came from a general link, scan-to-site action, or product
 - `source`: where in the UI the tap happened
-- `url`: the destination to open, with the scan's attribution already added
-- `urlString`: the destination as the IRCODE's owner entered it, before attribution
-- `clickID`: the click ID IRKit sent on this tap's statistics event
+- `url`: the destination to open, with the scan’s attribution already added
+- `urlString`: the destination as the IRCODE’s owner entered it, before attribution
+- `clickID`: the click ID IRKit sent on this tap’s statistics event
 - `title` and `icon`: presentation metadata when available
 - `imageID`, `imagePreviewTitle`, and `imagePreviewSubtitle`: context about the recognized result
 
 ## Open `url`, Not `urlString`
 
-When your app opens the destination itself, open `url`. IRKit has added the scan's attribution to it: the pairing parameters on an ircode.tv microsite, and `irclid` and `irsid` on any other site. A purchase or sign-up on that site can then be joined back to the scan. `urlString` is the link as it was entered, without that attribution, so opening it loses the conversion.
+When your app opens the destination itself, open `url`. IRKit has added the scan’s attribution to it: the pairing parameters on an ircode.tv microsite, and `irclid` and `irsid` on any other site. A purchase or sign-up on that site can then be joined back to the scan. `urlString` is the link as it was entered, without that attribution, so a conversion that follows from opening it can’t be joined to the scan. A link that isn’t a web link, such as `tel:` or `mailto:`, comes through in `url` unchanged.
 
 Use `urlString` only to show or compare the original link, for example to recognize your own domain.
 
 ## Example: Present a Confirmation Dialog
 
-The demo app intercepts result taps, stores the `IRResultLinkTapInfo`, and then decides whether to open the URL itself.
+The demo app intercepts result taps, stores the `IRResultLinkTapInfo`, and then decides whether to open the URL itself. It opens `url` and shows `urlString` in the dialog.
 
 ```swift
 import SwiftUI
@@ -85,7 +85,7 @@ struct CameraScreen: View {
 
                 Button("Cancel", role: .cancel) {}
             } message: {
-                Text(pendingLinkTap?.url.absoluteString ?? "")
+                Text(pendingLinkTap?.urlString ?? "")
             }
     }
 }

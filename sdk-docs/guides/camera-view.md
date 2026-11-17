@@ -245,7 +245,7 @@ IRCameraView()
     .onResultLinkTapped { info in
         print(info.kind)
         print(info.source)
-        print(info.urlString)
+        print(info.url)
         return true
     }
 ```
